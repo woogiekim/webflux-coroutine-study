@@ -8,6 +8,6 @@
     <root name="com.woogie.study" level="info"/>
 
     <root name="com.woogie.study.runner" level="info">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
