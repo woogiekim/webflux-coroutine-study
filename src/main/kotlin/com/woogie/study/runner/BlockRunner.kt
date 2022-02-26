@@ -1,5 +1,6 @@
-package com.woogie.study
+package com.woogie.study.runner
 
+import com.woogie.study.someClient
 import org.slf4j.LoggerFactory
 import kotlin.system.measureTimeMillis
 
@@ -11,6 +12,7 @@ fun main() {
             someClient.get().uri("/api/$id").retrieve().bodyToMono(String::class.java)
                 .doOnNext { log.info(it) }
                 .block()
+                .apply { log.info(this) }
         }
     }.let { log.info("$it ms") }
 }
