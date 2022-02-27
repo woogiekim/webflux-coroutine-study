@@ -12,7 +12,6 @@ fun main() {
             someClient.get().uri("/api/$id").retrieve().bodyToMono(String::class.java)
                 .doOnNext { log.info(it) }
                 .block()
-                .apply { log.info(this) }
         }
     }.let { log.info("$it ms") }
 }

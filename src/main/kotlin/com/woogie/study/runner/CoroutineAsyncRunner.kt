@@ -19,7 +19,6 @@ fun main() {
                     someClient.get().uri("/api/$id").retrieve().bodyToMono(String::class.java)
                         .doOnNext { log.info(it) }
                         .awaitSingle()
-                        .apply { log.info(this) }
                 }
             }
 

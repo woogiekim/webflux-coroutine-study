@@ -14,10 +14,10 @@ fun main() {
 
     runBlocking {
         measureTimeMillis {
-            (1 until 10).map { id ->
+            (0 until 10).map { id ->
                 someClient.get().uri("/api/$id").retrieve().bodyToMono(String::class.java)
+                    .doOnNext { log.info(it) }
                     .awaitSingle()
-                    .apply { log.info(this) }
             }
         }.let { log.info("$it ms") }
     }
